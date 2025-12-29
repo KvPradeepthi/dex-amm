@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  dex-amm:
+    build: .
+    container_name: dex-amm
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "8545:8545"
+    environment:
+      - NODE_ENV=test
+    command: npm test
